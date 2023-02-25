@@ -1,4 +1,5 @@
 import React from "react";
+import Event from './Event'
 
 const Calendar = () => {
     return (
@@ -19,38 +20,31 @@ const Calendar = () => {
                 <tbody>
                     <tr>
                         <td className="time">8:00 am</td>
+                        <Event event="Starbucks" color='green' />
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <Event event='Yolk 🍳' color ='green'/>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td className="time">9:00 am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <td className="time">9 am</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <Event event='Subway 🚊' color ='pink'/>
+                <td></td>
+                <td></td>
+                <Event event='The Bean 🫘' color ='blue'/>
                     </tr>
                     <tr>
                         <td className="time">10:00 am</td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -58,9 +52,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">11:00 am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -71,9 +63,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">12:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -84,9 +74,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">1:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -97,9 +85,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">2:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -116,16 +102,12 @@ const Calendar = () => {
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                     </tr>
                     <tr>
                         <td className="time">4:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -136,9 +118,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">5:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -149,9 +129,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">6:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -162,9 +140,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">7:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -175,9 +151,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">8:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -188,9 +162,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">9:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -201,9 +173,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">10:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -214,9 +184,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">11:00 pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
@@ -227,9 +195,7 @@ const Calendar = () => {
                     </tr>
                     <tr>
                         <td className="time">12:00 am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td></td>
                         <td></td>
                         <td></td>
