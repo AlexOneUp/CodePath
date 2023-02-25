@@ -4,7 +4,7 @@ const Event = (props) => {
     return (
         <td className={'Event ' + props.color}>
             <h5>{props.event}</h5>
-            <p>{props.description}</p>
+            <h6>{props.location}</h6>
         </td>
     );
 }
