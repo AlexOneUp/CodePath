@@ -1,32 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import './App.css';
+import Navbar from './components/Navbar';
+import Card from './components/Card';
+import images_seed from './assets/images_seed.json';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Navbar />
+      <div className='container'>
+        <div className='card-container'>
+          {/* Does not work on back button routing. */}
+          {images_seed.map((image) => ( 
+          <Card 
+            source_props={image.url} 
+            description_props={image.description} 
+            hyperlink_props={image.url}
+            /> 
+            ))
+          }
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
