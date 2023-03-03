@@ -1,6 +1,6 @@
 import './App.css';
 import  React, { useState } from 'react';
-
+import Upgrade from './components/Upgrade';
 
 const App = () => {
 
@@ -71,7 +71,7 @@ const App = () => {
             <button onClick={buyFullFeast}>
               1000 samosas
             </button>
-      
+          {/* <Upgrade upgrade={upgrade} count={count} setCount={setCount} multiplier={multiplier} setMultiplier={setMultiplier} /> */}
           </div>
         </div>
       </div>
