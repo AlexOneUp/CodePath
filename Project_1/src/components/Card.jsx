@@ -2,7 +2,7 @@ import React from "react";
 import '../styles/Card.css';
 
 const Card = (props) => {
-    console.log(props.url);
+    // console.log(props.url);
     return (
         <div className="card">
             <div className="content">
