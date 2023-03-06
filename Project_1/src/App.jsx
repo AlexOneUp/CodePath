@@ -11,6 +11,7 @@ const App = () => {
       <div className='container'>
         <div className='card-container'>
           {/* Does not work on back button routing. */}
+          
           {images_seed.map((image) => ( 
           <Card 
             source_props={image.url} 
