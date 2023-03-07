@@ -35,13 +35,7 @@ const Flashcard = (props) => {
         </div>
     ) : (   
         <div className="card" onClick={() => setIsQuestion(true)}>
-                <style>
-                {`
-                .card {
-                    background-color: ${bgColor};
-                }
-                `}
-            </style>
+
             <img src={props.image_props} height={100} width={100}>
             </img>
             <div className="content" >
