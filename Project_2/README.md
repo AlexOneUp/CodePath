@@ -18,7 +18,7 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] Cards contains images in addition to or in place of text
+- [X] Cards contains images in addition to or in place of text
 - [X] Cards have different visual styles such as color based on their category
 - [X] *visual style implemented*
 
