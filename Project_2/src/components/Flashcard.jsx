@@ -7,31 +7,27 @@ const Flashcard = (props) => {
 
     
     return isQuestion ? (
-            <div className="content">
-                <button
-                className='jh-cart-toggle-button'
-                onClick={() => setIsQuestion(false)}
-            >See Answer
-            </button>
-
-                <h3>{props.question_props}</h3>
-               
-
-            </div>
-
-    ) : (
-    
         <div className="card">
             <div className="content">
                 <button
-                className='jh-cart-toggle-button'
-                onClick={() => setIsQuestion(true)}
-            >See Questions</button>
+                    className='question-toggle-button'
+                    onClick={() => setIsQuestion(false)}
+                >See Answer</button>
+                <h3>{props.question_props}</h3>
+            </div>
+        </div>
+    ) : (   
+        <div className="card">
+            <div className="content">
+                <button
+                    className='answer-toggle-button'
+                    onClick={() => setIsQuestion(true)}
+                >See Question</button>
                 <h3 >{props.answer_props}</h3>
             </div>
         </div>
 
-    )
-    }
+    );
+}
 
 export default Flashcard;
