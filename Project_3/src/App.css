@@ -1,0 +1,19 @@
+#root {
+  margin: 0 auto;
+  display: flex;
+  background-color: white;
+  padding: 0;
+  text-align: center;
+}
+.App{
+
+}
+
+.container{
+  cursor: auto;
+}
+
+
+.read-the-docs {
+  color: #888;
+}
