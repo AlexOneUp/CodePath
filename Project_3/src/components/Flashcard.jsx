@@ -27,7 +27,7 @@ const Flashcard = (props) => {
             </style>
             <img src={props.image_props} height={100} width={100}>
             </img>
-            <h4>This is the {props.card_counter}th card</h4>
+            <h4>This card #{props.card_counter} in the pile</h4>
             <div className="content">
                 <h2>Question :</h2>
                 <h2>Difficulty: {props.difficultyProps}</h2>
@@ -40,10 +40,10 @@ const Flashcard = (props) => {
 
             <img src={props.image_props} height={100} width={100}>
             </img>
-            
+            <h4>This card #{props.card_counter} in the pile</h4>
             <div className="content" >
                 <h2>Answer :</h2>
-                
+                <h2>Difficulty: {props.difficultyProps}</h2>
                 <h3 >{props.answer_props}</h3>
 
             </div>

@@ -42,40 +42,23 @@ const App = () => {
   const nextRandomCard = () => {
     random = Math.floor(Math.random() * card_seed.length);
     
-    console.log(random, "This is next ranomd card function");
+    console.log(random, "This is next random card function");
     return random;
     // setCurrIndex(random);
   }
 
-    const previousCard = () => {
-      console.log("This is previous card function", cardStack);
-      let cardsCopy = [...cardStack];
-      if (cardsCopy.length <= 1) {
-        console.log("This is the end of the stack");
-        return;
-      } else {
-        let prevCard = cardsCopy.pop();
-        setCurrIndex(prevCard);
-        setCardStack([...cardsCopy]);
-      }
-      // if (cardsCopy.length === 0) {
-      //   console.log("This is the end of the stack");
-      //   return;
-      // } else {
-      //   // If previous card was invoked, already, pop once, otherwise pop twice
-        
-      //   const currCard = cardsCopy.pop();
-      //   setCardStack([...cardsCopy]);
-      //   setCurrIndex(currCard);
-      //   console.log(cardStack);
-      // }
-      // const newCardStack = cardStack.filter((d) => d.e !== card_seed[index]);
-      // setCardStack(newCardStack);
-      // console.log(newCardStack);
-      // console.log(cardStack);
-    };
-
-  
+  const previousCard = () => {
+    console.log("This is previous card function",cardStack);
+    let cardsCopy = [...cardStack];
+    if (cardsCopy.length <= 1) {
+      console.log("This is the end of the stack");
+      return;
+    } else {
+      let prevCard = cardsCopy.pop();
+      setCurrIndex(prevCard);
+      setCardStack([...cardsCopy]);
+    }
+  };
 
   return (
     <div className="App">
@@ -88,7 +71,6 @@ const App = () => {
       {/* Container with Content */}
       
       <div className="content-container">
-
         <div className="card">
           <Flashcard 
             card_counter={cardStack.length}
@@ -99,6 +81,9 @@ const App = () => {
             />
         </div>
         
+        <div className="form-container">
+          <AnswerForm answer_props={currCard.answer} />
+        </div>
 
         <div className="button-container">
           <button className="previous-button" onClick={previousCard}>Back</button>
@@ -112,4 +97,4 @@ const App = () => {
     }
 
 
-export default App
+export default App;

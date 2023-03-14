@@ -5,9 +5,7 @@
   padding: 0;
   text-align: center;
 }
-.App{
 
-}
 
 .container{
   cursor: auto;
@@ -16,4 +14,12 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.button-container .previous {
+  margin-right: 5rem;
+}
+
+.button-container .next-button {
+  margin-left: 5rem;
 }
