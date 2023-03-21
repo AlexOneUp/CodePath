@@ -117,7 +117,7 @@ function App() {
     <div className="container">
       <h3> Current Query Status: </h3>
       <p>
-        https://api.apiflash.com/v1/urltoimage?access_key={ACCESS_KEY}    
+        https://api.apiflash.com/v1/urltoimage?access_key=ACCESS_KEY    
         <br></br>
         &url={inputs.url} <br></br>
         &format={inputs.format} <br></br>
