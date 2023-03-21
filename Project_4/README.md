@@ -2,35 +2,35 @@
 
 Submitted by: **Alex Ruan**
 
-This web app: **scrolls through the pokemon API and displays them all by number**
+This web app: **scrolls through the NASA Mars Photo API and displays random photo from the collection with certain parameters**
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] **Clicking a button creates a new API fetch request and displays at least three attributes from the returned JSON data**
-- [ ] **Only one item/API call is viewable at a time**
-- [ ] **API calls appear random to the user**
-- [ ] **At least one image is displayed per API call**
+- [X] **Clicking a button creates a new API fetch request and displays at least three attributes from the returned JSON data**
+- [X] **Only one item/API call is viewable at a time**
+- [X] **API calls appear random to the user**
+- [X] **At least one image is displayed per API call**
 - [ ] **Clicking on a displayed value for one attribute adds it to a displayed ban list**
 - [ ] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
 
 The following **optional** features are implemented:
 
 - [ ] Multiple types of attributes can be added to the ban list
-- [ ] Users can see a stored history of their previously viewed items from their session
+- [X] Users can see a stored history of their previously viewed items from their session
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you added to improve the site's functionality!
+* [X] Added history of images.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='.src/assets/project4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
