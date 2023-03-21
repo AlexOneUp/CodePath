@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import APIForm from './Components/APIform';
+import Gallery from './Components/gallery';
 
-const ACCESS_KEY = import.meta.env.VITE_ACCESS_KEY
+const ACCESS_KEY = import.meta.env.VITE_APP_ACCESS_KEY
 
 function App() {
   // ______________________________________________________
@@ -17,7 +18,12 @@ function App() {
     height: "",
   });
   
+  // Checkpoint 1
   const [currentImage, setCurrentImage] = useState(null);
+
+  // Checkpoint 2
+  const [prevImages, setPrevImages] = useState([]);
+
 
   // ______________________________________________________
   // All functions are stored here
@@ -64,9 +70,9 @@ function App() {
     if (json.url == null){
       alert("Oops! Something went wrong with that query, let's try again!")
         }
-    else 
-      {
+        else {
           setCurrentImage(json.url);
+          setPrevImages((images) => [...images, json.url]);
           reset();
         }
   }
@@ -108,25 +114,28 @@ function App() {
   <div> </div>
 )}
 
-<div className="container">
-  <h3> Current Query Status: </h3>
-  <p>
-    https://api.apiflash.com/v1/urltoimage?access_key=ACCESS_KEY    
-    <br></br>
-    &url={inputs.url} <br></br>
-    &format={inputs.format} <br></br>
-    &width={inputs.width}
-    <br></br>
-    &height={inputs.height}
-    <br></br>
-    &no_cookie_banners={inputs.no_cookie_banners}
-    <br></br>
-    &no_ads={inputs.no_ads}
-    <br></br>
-  </p>
-</div>
+    <div className="container">
+      <h3> Current Query Status: </h3>
+      <p>
+        https://api.apiflash.com/v1/urltoimage?access_key={ACCESS_KEY}    
+        <br></br>
+        &url={inputs.url} <br></br>
+        &format={inputs.format} <br></br>
+        &width={inputs.width}
+        <br></br>
+        &height={inputs.height}
+        <br></br>
+        &no_cookie_banners={inputs.no_cookie_banners}
+        <br></br>
+        &no_ads={inputs.no_ads}
+        <br></br>
+      </p>
+    </div>
 
-<br></br>
+    <br></br>   
+      <div className="container">
+        <Gallery images={prevImages} />
+      </div>
     </div>
   );
 }
