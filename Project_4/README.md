@@ -1,4 +1,4 @@
-# Web Development Project 4 - *Pokemon*
+# Web Development Project 4 - *Mars Rover Photo Generator*
 
 Submitted by: **Alex Ruan**
 
