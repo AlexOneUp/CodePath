@@ -166,6 +166,14 @@ function App() {
       <h3> Current Query Status: </h3>
       <h3>
         You pulled {apiSize} objects from NASA's API this time!
+        <p>
+        https://api.nasa.gov/mars-photos/api/v1/rovers/{inputs.rover}/photos?&api_key=ACCESS_KEY 
+        <br></br>
+        &rover={inputs.rover} <br></br>
+        &fsol={inputs.sol} <br></br>
+        &camera={inputs.camera}
+        <br></br>
+      </p>
         <br></br>
       </h3>
     </div>
