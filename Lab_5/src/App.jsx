@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import CoinInfo from "./Components/coinInfo";
+import CoinInfo from "./components/coinInfo";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SideNav from './components/sideNav';
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY
 
@@ -9,6 +10,9 @@ const API_KEY = import.meta.env.VITE_APP_API_KEY
 function App() {
   const [list, setList] = useState(null);
   
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+
   useEffect(() => {
     const fetchAllCoinData = async () => {
       const rizzponse = await fetch( 
@@ -20,21 +24,56 @@ function App() {
     };
     fetchAllCoinData().catch(console.error);
   }, [])
+
+  const searchItems = searchValue => {
+    setSearchInput(searchValue);
+    if (searchValue !== "") {
+      const filteredData = Object.keys(list.Data).filter((item) => 
+        Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchValue.toLowerCase())
+      )
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(Object.keys(list.Data));
+    }
+  };
+
   return (
     <div className="App">
       <div className="whole-page">
+        <SideNav className='sideNav'/>
         <h1>My Crypto List</h1>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(inputString) => searchItems(inputString.target.value)}
+        />
             <ul>
-            {list && Object.entries(list.Data).map(([coin]) =>
-              list.Data[coin].PlatformType === "blockchain" ? (
-                // <li key={list.Data[coin].FullName}>{list.Data[coin].FullName}</li>
-                <CoinInfo
-                image={list.Data[coin].ImageUrl}
-                name={list.Data[coin].FullName}
-                symbol={list.Data[coin].Symbol}
-                />
-              ) : null
-        )}
+              {searchInput.length > 0 ?
+                // what happens if we have search input? what list do we use to display coins?     
+                  filteredResults.map((coin) => 
+                    list.Data[coin].PlatformType === "blockchain" ? 
+                    <CoinInfo
+                      image={list.Data[coin].ImageUrl}
+                      name={list.Data[coin].FullName}
+                      symbol={list.Data[coin].Symbol}
+                    />
+                    : null
+                    )
+                : // what happens if we don't have search input? what list do we use to display coins?            
+                list && Object.entries(list.Data).map(([coin]) =>
+                  list.Data[coin].PlatformType === "blockchain" ? 
+                    // <li key={list.Data[coin].FullName}>{list.Data[coin].FullName}</li>
+                    <CoinInfo
+                    image={list.Data[coin].ImageUrl}
+                    name={list.Data[coin].FullName}
+                    symbol={list.Data[coin].Symbol}
+                    />
+                   : null
+                  )}
+                
             </ul>
       </div>
     </div>

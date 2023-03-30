@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -66,4 +66,41 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+
+:root {
+  color: #213547;
+  background-color: #fff;
+}
+:root {
+  font-family: Inter,Avenir,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #ffffffde;
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  --arc-palette-focus:  #8D92FBF9;
+  --arc-palette-hover:  #D1D3FDF5;
+  --arc-palette-maxContrastColor:  #212AFBFF;
+  --arc-palette-background:  #E8E9FEF4;
+  --arc-palette-title:  #0A0D4EF6;
+  --arc-palette-minContrastColor:  #ECEDFEFF;
+  --arc-palette-foregroundTertiary:  #ECEDFEFF;
+  --arc-palette-cutoutColor:  #ECEDFEFF;
+  --arc-palette-subtitle:  #A4A7FBF7;
+  --arc-palette-backgroundExtra:  #FDFDFFF2;
+  --arc-palette-foregroundSecondary:  #8489FBFF;
+  --arc-background-gradient-color1:  #FFE6E6FF;
+  --arc-palette-foregroundPrimary:  #3139FBFF;
+  --arc-background-gradient-color0:  #C8CAFEFF;
 }
