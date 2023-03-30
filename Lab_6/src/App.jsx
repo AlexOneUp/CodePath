@@ -1,33 +1,81 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
+import CoinInfo from "./components/coinInfo";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SideNav from './components/sideNav';
+
+const API_KEY = import.meta.env.VITE_APP_API_KEY
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [list, setList] = useState(null);
+  
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    const fetchAllCoinData = async () => {
+      const rizzponse = await fetch( 
+        "https://min-api.cryptocompare.com/data/all/coinlist?&api_key" 
+        + API_KEY
+      );
+      const json = await rizzponse.json();
+      setList(json);
+    };
+    fetchAllCoinData().catch(console.error);
+  }, [])
+
+  const searchItems = searchValue => {
+    setSearchInput(searchValue);
+    if (searchValue !== "") {
+      const filteredData = Object.keys(list.Data).filter((item) => 
+        Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchValue.toLowerCase())
+      )
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(Object.keys(list.Data));
+    }
+  };
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="whole-page">
+        <SideNav className='sideNav'/>
+        <h1>My Crypto List</h1>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(inputString) => searchItems(inputString.target.value)}
+        />
+            <ul>
+              {searchInput.length > 0 ?
+                // what happens if we have search input? what list do we use to display coins?     
+                  filteredResults.map((coin) => 
+                    list.Data[coin].PlatformType === "blockchain" ? 
+                    <CoinInfo
+                      image={list.Data[coin].ImageUrl}
+                      name={list.Data[coin].FullName}
+                      symbol={list.Data[coin].Symbol}
+                    />
+                    : null
+                    )
+                : // what happens if we don't have search input? what list do we use to display coins?            
+                list && Object.entries(list.Data).map(([coin]) =>
+                  list.Data[coin].PlatformType === "blockchain" ? 
+                    // <li key={list.Data[coin].FullName}>{list.Data[coin].FullName}</li>
+                    <CoinInfo
+                    image={list.Data[coin].ImageUrl}
+                    name={list.Data[coin].FullName}
+                    symbol={list.Data[coin].Symbol}
+                    />
+                   : null
+                  )}
+                
+            </ul>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }

@@ -43,7 +43,7 @@ li.main-list {
   margin-left: 75px;
   }
 
-.sideNav {
+div.sideNav {
   height: 100%;
   width: 25%;
   position: fixed;
