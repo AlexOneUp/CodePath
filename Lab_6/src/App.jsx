@@ -1,13 +1,24 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import CoinInfo from "./components/coinInfo";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SideNav from './components/sideNav';
+
+import { useRoutes } from "react-router-dom";
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY
 
 
 function App() {
+  let element = useRoutes([
+    {
+      path: "/",
+      element: <CoinInfo />,
+    },
+    {
+      path: "/coinDetails/:symbol",
+      element: <DetailView />,
+    }
+    ]);
   const [list, setList] = useState(null);
   
   const [filteredResults, setFilteredResults] = useState([]);
@@ -42,8 +53,12 @@ function App() {
 
   return (
     <div className="App">
+<div>
+ {element}
+</div>
+
       <div className="whole-page">
-        <SideNav className='sideNav'/>
+        {/* <SideNav className='sideNav'/> */}
         <h1>My Crypto List</h1>
         <input
           type="text"

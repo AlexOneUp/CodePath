@@ -49,14 +49,13 @@ function App() {
         }
         makeQuery();
       }
-      
-      
-      const makeQuery = () => {
-        let camera = ["FHAZ", "RHAZ"]
-        let rover = ["curiosity", "opportunity", "spirit"];
-        let random = Math.floor(Math.random() * 3);
+            
+    const makeQuery = () => {
+      let camera = ["FHAZ", "RHAZ"]
+      let rover = ["curiosity", "opportunity", "spirit"];
+      let random = Math.floor(Math.random() * 3);      
         
-        let query = `https://api.nasa.gov/mars-photos/api/v1/rovers/${inputs.rover}/photos?sol=${inputs.sol}&api_key=${ACCESS_KEY}`;
+      let query = `https://api.nasa.gov/mars-photos/api/v1/rovers/${inputs.rover}/photos?sol=${inputs.sol}&api_key=${ACCESS_KEY}`;
         if (camera.includes(inputs.camera[0] || inputs.camera[1])){
           query = `https://api.nasa.gov/mars-photos/api/v1/rovers/${inputs.rover}/photos?sol=${inputs.sol}&camera=${inputs.camera.toLowerCase()}&api_key=${ACCESS_KEY}`
         } else if (inputs.camera == null && inputs.rover == null && inputs.sol == null){
@@ -67,9 +66,9 @@ function App() {
           query = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover[random]}/photos?sol=1000&api_key=${ACCESS_KEY}`;
         }
         
-        console.log(query);
-        callAPI(query).catch(console.error);
-      }
+      console.log(query);
+      callAPI(query).catch(console.error);
+    }
       
       
       const callAPI = async (query) => {
@@ -210,6 +209,8 @@ function App() {
             <Gallery images={prevImages} />
           )
           }
+
+      
           {/* {stateList.map((state) => (
             <option key={state} value={state}>
               {state}
