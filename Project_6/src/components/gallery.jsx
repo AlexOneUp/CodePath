@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route, Link, Outlet } from "react-router-dom";
 
 const Gallery = ({ images, roverName }) => {
   console.log(images, "This is from GALLERY COMPONENT")
@@ -12,17 +13,25 @@ const Gallery = ({ images, roverName }) => {
               <h3>You have no images yet!</h3>
           )
         }
-        <div className="image-container">
+        <div className="image-container" >
           {images && images.length > 0 ? (
             images.map((pic, index) => (
+              <Routes>
+                
                 <li className="gallery" key={index}>
-                  <img
-                    className="gallery-screenshot"
-                    src={pic}
-                    alt="Undefined screenshot from query"
-                    width="500"
-                  />
+                  {/* Use React Routes from this point on. */}
+                  <Route path="/#" Component={galleryImageDetails}>
+                    <a href="#">
+                    <img
+                      className="gallery-screenshot"
+                      src={pic}
+                      alt="Undefined screenshot from query"
+                      width="500"
+                      />
+                    </a>
+                  </Route>
                 </li>
+              </Routes>
               )
             )
           ) : (

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import APIForm from './Components/APIform';
 import Gallery from './Components/gallery';
+import { BrowserRouter as Router, Routes, Route, Link, Outlet} from 'react-router-dom';
+
 
 const ACCESS_KEY = import.meta.env.VITE_NASA_ACCESS_KEY
 
@@ -86,8 +88,8 @@ function App() {
         // console.log(json.photos.filter((photo) => photo.rover.name === "Curiosity" && photo.camera.name === "FHAZ"));
         setPrevImages((images) => [...images, json.photos[random].img_src]);
         setGalleryObject((roverObjects) => [...roverObjects, json.photos[random]]);
-
         setGalleryImages((roverObjects) => [...roverObjects, json.photos[random].img_src]);
+
         setOldObjects((roverObjects) => [...roverObjects, json.photos[random]]);
         console.log(oldObjects, "These are the old objects");
         console.log(galleryObject, "These are the gallery objects");
@@ -144,6 +146,8 @@ function App() {
 
     return (
     <div className="whole-page">
+
+
       <h1>Mars Rover Picture Generator </h1>
       <h2>Randomly generate a photo or fill out the form!</h2>
       <APIForm
@@ -155,17 +159,19 @@ function App() {
           }))
         }
         onSubmit={submitForm}
-      />
+        />
+
+        
       <br></br>
       {currentImage ? (
-  <img
-    className="screenshot"
-    src={currentImage}
-    alt="Screenshot returned"
-  />
-) : (
-  <div> </div>
-)}
+        <img
+        className="screenshot"
+        src={currentImage}
+        alt="Screenshot returned"
+        />
+        ) : (
+          <div> </div>
+          )}
 
     <div className="container">
       <h3> Current Query Status: </h3>
@@ -193,12 +199,12 @@ function App() {
           onChange={(inputString) => searchItems(inputString.target.value)}
           // handleChange={(e) =>
           //   searchItems((prevState) => ({
-          //     ...prevState,
-          //     [e.target.name]: e.target.value.trim(),
-          //   }))
-          // }
-          // onChange={searchItems}
-          />
+            //     ...prevState,
+            //     [e.target.name]: e.target.value.trim(),
+            //   }))
+            // }
+            // onChange={searchItems}
+            />
 
           {/* <select >
             <option value="Curiosity">Curiosity</option>
@@ -206,34 +212,13 @@ function App() {
             <option value="Spirit">Spirit</option>
           </select> */}
         </div>
-        {
-          searchInput.length > 0 ? (
-
-            <Gallery images={galleryImages} />
-
-          ) : (
-            <Gallery images={prevImages} />
-          )
-          }
-
-      
-          {/* {stateList.map((state) => (
-            <option key={state} value={state}>
-              {state}
-            </option>
-          ))} */}
-        {/* <select value={selectedType} onChange={handleTypeSelect}>
-          <option value="">Select a brewery type</option>
-          {typeList.map((type) => (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          ))}
-        </select>
-      </div> */}
-     {/* <Gallery images={curiosityPhotos} roverName={"Curiosity"} />
-        <Gallery images={opportunityPhotos} roverName={"Opportunity"}/> */}
-        {/* <Gallery images={prevImages} />  */}
+          {
+            searchInput.length > 0 ? (
+              <Gallery images={galleryImages} />  
+              ) : (
+                <Gallery images={prevImages} />
+                )
+              }
       </div>
     </div>
   );
